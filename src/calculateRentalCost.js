@@ -5,17 +5,19 @@
  */
 function calculateRentalCost(days) {
   const rentalPrice = 40;
-  const saleMost3Days = 20;
-  const saleMost7Days = 50;
+  const discountFor3OrMostday = 20;
+  const discountFor7OrMostday = 50;
+  const rentalDayForDiscount20 = 3;
+  const rentalDayForDiscount50 = 7;
 
   const rentalSum = rentalPrice * days;
 
-  if (days > 6) {
-    return rentalSum - saleMost7Days;
+  if (days >= rentalDayForDiscount50) {
+    return rentalSum - discountFor7OrMostday;
   }
 
-  if (days > 2) {
-    return rentalSum - saleMost3Days;
+  if (days >= rentalDayForDiscount20) {
+    return rentalSum - discountFor3OrMostday;
   }
 
   return rentalSum;
